@@ -85,7 +85,7 @@ function makeSmartPerson(personName) {
       return num1 + num2;
     },
     speak: function(personName) {
-      return `Hello, my name is ${name}`
+      return `Hello, my name is ${this.name}`
     }
   }
   return person;
@@ -150,7 +150,7 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  return `This is a ${inventory[index].car_make} + ${inventory[index].car_model}`
 }
 
 /**
@@ -164,8 +164,9 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+  const lastItem = inventory.length - 1;
+  return `This is a ${inventory[lastItem].car_make} ${inventory[lastItem].car_model}`;
 }
 
 /**
@@ -180,8 +181,13 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory, carId) {
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].id === carId) {
+      const car = inventory[i];
+      return `This is a ${car.car_make} ${car.car_model}`;
+    }
+  }
 }
 
 /**
